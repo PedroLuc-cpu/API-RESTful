@@ -1,0 +1,27 @@
+{
+  "name": "api-restful",
+  "version": "1.0.0",
+  "description": "uma API RESTful com Node.js e MongoDB | CRUD com Node, Express e Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon ./index.js",
+    "start": "node ./index.js localhost 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroLuc-cpu/API-RESTful.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroLuc-cpu/API-RESTful/issues"
+  },
+  "homepage": "https://github.com/PedroLuc-cpu/API-RESTful#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20"
+  }
+}
