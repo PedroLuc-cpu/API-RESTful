@@ -29,10 +29,9 @@ const DB_PASS = encodeURIComponent('123')
 
 mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@restfulcluster.wbgvswh.mongodb.net/?retryWrites=true&w=majority`)
 .then(()=>{
+       // Port open
        console.info("Connection ao MongoDB")
        app.listen(3000)
 })
 .catch(err => console.log(err))
-
-
-// Port open
+ 
