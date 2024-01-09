@@ -2,7 +2,7 @@
 import express, { Request, Response } from "express"
 import mongoose from "mongoose";
 import personRouter from "./routes/personRoutes"
-
+import cors from "cors"
 
 export const app = express()
 
@@ -15,6 +15,7 @@ app.use(
        })
 )
 app.use(express.json())
+app.use(cors())
 
 
 // Rotas da API

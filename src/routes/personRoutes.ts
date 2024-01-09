@@ -1,21 +1,26 @@
 import express, { Request, Response } from "express"
-import {Person} from "../models/Person"
+import {Person} from "../data/Person"
+import { QueryPerson } from "../model/Person";
 
 const router = express.Router();
 
 
 // Rotas da API
 router.post('/', async (req : Request, res: Response) => {
-       const {name, salary, approved} = req.body
+       const {name, salary, approved, sexy} = req.body
        
        if(!name){
-       res.status(422).json({error:"O nome é obrigatório"})
-       return
+              res.status(422).json({error:"O nome é obrigatório"})
+              return
+       }else if(sexy !== "masculino" && sexy !== "feminino"){
+              res.status(422).json({erro: "o sexo não deve ser diferente de masculino ou feminino"})
+              return
        }
-       const person = {
+       const person: QueryPerson = {
               name,
               salary,
-              approved
+              approved,
+              sexy: "masculino"
        }
 
        try{
@@ -68,7 +73,7 @@ router.put('/:id', async (req : Request, res: Response) => {
 
        const {name, salary, approved} = req.body
        
-       const person = {name, salary, approved}
+       const person: QueryPerson = {name, salary, approved, sexy:"masculino"}
 
        try{
 
