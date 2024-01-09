@@ -6,7 +6,7 @@ interface  Query  {
        approved: boolean
 }
 
-// Schema da tabela person
+// Schema da tabela
 const createSchema = new Schema<Query>({
        name: {type: "string", required: true},
        salary: {type: "number", required:true},
@@ -15,5 +15,3 @@ const createSchema = new Schema<Query>({
 
 
 export const Person = mongoose.model('Person', createSchema)
-
-module.exports = Person

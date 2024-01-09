@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express"
 import {Person} from "../models/Person"
 
-const app = express();
+export const app = express();
 
 
 // Rotas da API
@@ -117,7 +117,5 @@ app.delete('/:id', async (req : Request, res: Response) => {
               res.status(500).json({message: err})
        }
 })
-
-module.exports = app
 
 
