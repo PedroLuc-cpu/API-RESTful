@@ -1,11 +1,11 @@
 import express, { Request, Response } from "express"
 import {Person} from "../models/Person"
 
-export const app = express();
+const router = express.Router();
 
 
 // Rotas da API
-app.post('/', async (req : Request, res: Response) => {
+router.use('/', async (req : Request, res: Response) => {
        const {name, salary, approved} = req.body
        
        if(!name){
@@ -31,7 +31,7 @@ app.post('/', async (req : Request, res: Response) => {
 
 
 // LEITURA DOS DADOS
-app.get('/', async (req : Request, res: Response) => {
+router.use('/', async (req : Request, res: Response) => {
        try{
 
               const people = await Person.find()
@@ -42,7 +42,7 @@ app.get('/', async (req : Request, res: Response) => {
        }
 })
 
-app.get('/:id', async (req : Request, res: Response) => {
+router.use('/:id', async (req : Request, res: Response) => {
        
        const id = req.params.id
 
@@ -62,7 +62,7 @@ app.get('/:id', async (req : Request, res: Response) => {
 
 
 // Update - (PUT / Patch)
-app.patch('/:id', async (req : Request, res: Response) => {
+router.use('/:id', async (req : Request, res: Response) => {
 
        const id = req.params.id
 
@@ -90,7 +90,7 @@ app.patch('/:id', async (req : Request, res: Response) => {
 
 
 // delete 
-app.delete('/:id', async (req : Request, res: Response) => {
+router.use('/:id', async (req : Request, res: Response) => {
 
        const id = req.params.id
 
@@ -119,3 +119,4 @@ app.delete('/:id', async (req : Request, res: Response) => {
 })
 
 
+export default router;

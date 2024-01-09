@@ -1,7 +1,11 @@
 // config initialization
 import express, { Request, Response } from "express"
 import mongoose from "mongoose";
-const app = express()
+import personRouter from "./routes/personRoutes"
+
+
+export const app = express()
+
 
 
 // JSON / middleware
@@ -14,7 +18,6 @@ app.use(express.json())
 
 
 // Rotas da API
-const personRouter = require('./routes/personRoutes')
 app.use('/person', personRouter)
 
 
