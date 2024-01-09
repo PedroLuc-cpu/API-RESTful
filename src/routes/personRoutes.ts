@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Rotas da API
-router.use('/', async (req : Request, res: Response) => {
+router.post('/', async (req : Request, res: Response) => {
        const {name, salary, approved} = req.body
        
        if(!name){
@@ -31,7 +31,7 @@ router.use('/', async (req : Request, res: Response) => {
 
 
 // LEITURA DOS DADOS
-router.use('/', async (req : Request, res: Response) => {
+router.get('/', async (req : Request, res: Response) => {
        try{
 
               const people = await Person.find()
@@ -42,7 +42,7 @@ router.use('/', async (req : Request, res: Response) => {
        }
 })
 
-router.use('/:id', async (req : Request, res: Response) => {
+router.get('/:id', async (req : Request, res: Response) => {
        
        const id = req.params.id
 
@@ -62,7 +62,7 @@ router.use('/:id', async (req : Request, res: Response) => {
 
 
 // Update - (PUT / Patch)
-router.use('/:id', async (req : Request, res: Response) => {
+router.put('/:id', async (req : Request, res: Response) => {
 
        const id = req.params.id
 
@@ -90,16 +90,16 @@ router.use('/:id', async (req : Request, res: Response) => {
 
 
 // delete 
-router.use('/:id', async (req : Request, res: Response) => {
+router.delete('/:id', async (req : Request, res: Response) => {
 
        const id = req.params.id
 
        const person = await Person.deleteOne({_id: id})
        
-       // if(!person){
-       //        res.status(422).json({message: "Pessoa não encontrada"})
-       //        return
-       //        }
+       if(!person){
+              res.status(422).json({message: "Pessoa não encontrada"})
+              return
+              }
 
 
        try{
