@@ -6,6 +6,7 @@ interface  Query  {
        approved: boolean
 }
 
+// Schema da tabela person
 const createSchema = new Schema<Query>({
        name: {type: "string", required: true},
        salary: {type: "number", required:true},
