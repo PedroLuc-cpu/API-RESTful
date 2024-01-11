@@ -12,15 +12,12 @@ router.post('/', async (req : Request, res: Response) => {
        if(!name){
               res.status(422).json({error:"O nome é obrigatório"})
               return
-       }else if(sexy !== "masculino" && sexy !== "feminino"){
-              res.status(422).json({erro: "o sexo não deve ser diferente de masculino ou feminino"})
-              return
        }
        const person: QueryPerson = {
               name,
               salary,
               approved,
-              sexy: "masculino"
+              sexy
        }
 
        try{
